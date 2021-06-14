@@ -97,6 +97,11 @@
   position: fixed;
 }
 
+.wrap.on .work_list .bg .title p {
+  padding-left: 0;
+  animation: none;
+}
+
 .intro {
   display: none;
   position: fixed;
@@ -614,6 +619,7 @@
 .about03 ul li .do {
   font-size: 22px;
   line-height: 1.3;
+  word-break: keep-all;
 }
 
 .about03 .dots {
@@ -654,6 +660,7 @@
   padding: 20px 60px;
   margin-bottom: 20px;
   font-size: 25px;
+  word-break: keep-all;
 }
 
 .about04 li .questions .box::before {
@@ -679,6 +686,7 @@
   padding: 20px 60px;
   margin-bottom: 20px;
   font-size: 25px;
+  word-break: keep-all;
 }
 
 .about04 li .answers .box::before {
