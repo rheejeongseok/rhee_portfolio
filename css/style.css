@@ -349,6 +349,25 @@
   font-weight: 700;
   letter-spacing: 20px;
   color: #ffffff;
+  width: 100%;
+  text-align: center;
+  overflow: hidden;
+}
+
+.work_list ul li .bg .title p {
+  margin: 0;
+  padding-left: 100%;
+  display: inline-block;
+  white-space: nowrap;
+  animation-name: flow_text;
+  animation-timing-function: linear;
+  animation-duration: 10s;
+  animation-iteration-count: infinite;
+}
+
+.work_list ul li .bg .title p::after {
+  content: '';
+  white-space: nowrap;
 }
 
 .work_list ul li .img_list {
@@ -700,6 +719,8 @@
   font-size: 22px;
   font-family: 'apple';
   font-weight: 400;
+  word-break: keep-all;
+  line-height: 1.3;
 }
 
 .about {
@@ -758,6 +779,15 @@
   }
   90% {
     transform: rotate(2deg);
+  }
+}
+
+@keyframes flow_text {
+  from {
+    transform: translate(0%);
+  }
+  99%, to {
+    transform: translate(-100%);
   }
 }
 /*# sourceMappingURL=style.css.map */
