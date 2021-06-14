@@ -35,6 +35,9 @@ window.onload = () => {
 			// url: `${window.location.origin}/work_list.json`,
 			type: 'GET',
 			dataType: 'JSON',
+			beforeSend: () => {
+				if($wrap.has('.on')) $('.work_view').fadeOut(500);
+			},
 			success: (data) => {
 
 				const [$d_bg, $d_title, $d_img_list] = [$('.work_list .bg'), $('.work_list .title'), $('.work_list .img_list')];
@@ -67,6 +70,9 @@ window.onload = () => {
 				});
 
 				$v_img.html(view_img_html.join(''))
+			},
+			complete: () => {
+				if($wrap.has('.on')) $('.work_view').fadeIn(500);
 			}
 		})
 	}
@@ -97,7 +103,7 @@ window.onload = () => {
 			},
 			complete: () => {
 				setTimeout(() => {
-					$content.removeClass('fade-in-right scale-in-ver-center')
+					$content.removeClass('about work')
 					if (url === 'home') action_home();
 					
 				}, 2000)
@@ -175,7 +181,6 @@ window.onload = () => {
 	$.ajax({
 		url: 'index.html',
 		success: () => {
-			console.log("suc")
 			$('.intro .rhee').addClass('on');
 			setTimeout(() => {
 				$('.intro').fadeOut(1000);
