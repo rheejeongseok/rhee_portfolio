@@ -79,6 +79,10 @@
       .work {left:-68px;}
       .contact {right:-68px;}
    }
+
+   .btns {
+      position:fixed;
+   }
 }
 
 .intro {
@@ -212,7 +216,20 @@
             width:100%; height:100%; background:blanchedalmond; transition:1s;
 
             .title {
-               position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:100px; font-weight:700; letter-spacing:20px; color:#ffffff;
+               position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:100px; font-weight:700; letter-spacing:20px; color:#ffffff; width:100%; text-align:center;
+               overflow:hidden;
+
+               p {
+                  margin:0; padding-left:100%; display:inline-block; white-space:nowrap; 
+                  animation-name:flow_text;
+                  animation-timing-function:linear;
+                  animation-duration:10s;
+                  animation-iteration-count:infinite;
+
+                  &::after {
+                     content:''; white-space:nowrap;
+                  }
+               }
             }
          }
 
@@ -588,3 +605,12 @@
             transform: rotate(2deg);
   }
 }
+
+@-webkit-keyframes flow_text {
+   from   { -webkit-transform: translate(0%);}
+   99%,to { -webkit-transform: translate(-100%);}
+ }
+ @keyframes flow_text {
+   from   { transform: translate(0%);}
+   99%,to { transform: translate(-100%);}
+ }

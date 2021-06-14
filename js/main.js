@@ -42,7 +42,7 @@ window.onload = () => {
 				const {title_en, title_kr, background, link, skill, text, list_img, view_img} = data[work];
 
 				$d_bg.css('background', background);
-				$d_title.text(title_en);
+				$d_title.html(`<p>${title_en}</p>`);
 				$v_skills.text(skill);
 				$v_title_en.text(title_en);
 				$v_title_kr.text(title_kr);
