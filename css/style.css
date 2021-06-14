@@ -605,9 +605,10 @@
 }
 
 .about03 ul li .can::before {
-  content: '🏆';
+  content: '✔';
   position: absolute;
-  left: -27px;
+  left: -34px;
+  font-size: 20px;
 }
 
 .about03 ul li .do {
