@@ -490,6 +490,7 @@
 .work_view .site_info .con_text {
   flex: 2;
   word-break: keep-all;
+  line-height: 1.5;
 }
 
 .work_view .img_wrap {
