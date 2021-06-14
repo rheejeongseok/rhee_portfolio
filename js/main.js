@@ -72,9 +72,11 @@ window.onload = () => {
 				$v_img.html(view_img_html.join(''))
 			},
 			complete: () => {
-				if($wrap.has('.on')) $('.work_view').fadeIn(500);
+				setTimeout(() => {
+					if($wrap.has('.on')) $('.work_view').fadeIn(500);
+				}, 500);
 			}
-		})
+		});
 	}
 
 	const setPage = (url, prev, now) => {
