@@ -243,7 +243,7 @@
 }
 
 .main_home .post_card .side {
-  width: 400px;
+  width: 350px;
   display: flex;
   align-items: center;
 }
@@ -268,10 +268,6 @@
   display: flex;
   align-items: center;
   padding-left: 10px;
-}
-
-.main_home .post_card .con_text {
-  word-break: keep-all;
 }
 
 .main_home .post_card .profile {
@@ -465,7 +461,7 @@
 }
 
 .work_view .site_info .side {
-  width: 370px;
+  width: 400px;
 }
 
 .work_view .site_info .side .title_en {
@@ -489,6 +485,11 @@
   border-radius: 30px;
   background: #ec524a;
   color: white;
+}
+
+.work_view .site_info .con_text {
+  flex: 2;
+  word-break: keep-all;
 }
 
 .work_view .img_wrap {
