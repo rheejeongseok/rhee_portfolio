@@ -360,7 +360,7 @@
   display: inline-block;
   white-space: nowrap;
   animation-name: flow_text;
-  animation-timing-function: linear;
+  animation-timing-function: cubic-bezier(0.74, 0.34, 0.18, 0.74);
   animation-duration: 10s;
   animation-iteration-count: infinite;
 }
