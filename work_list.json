@@ -1,8 +1,8 @@
 [
-   {"title_en":"AUTOINSIDE", "title_kr":"오토인사이드","background":"#5c8fe2", "link":"http:www.autoinside.co.kr", "skill":"#JSP #Jquery", "text":"오토인사이드 설명","list_img":["img_list_ai"], "view_img":["autoinside_view"]},
-   {"title_en":"AUTOHANDS", "title_kr":"오토핸즈","background":"#405aa2", "link":"http:www.autohands.co.kr", "skill":"#JSP #Jquery", "text":"오토핸즈 설명","list_img":["img_list_ah"], "view_img":["autohands_view"]},
-   {"title_en":"CARNOTE", "title_kr":"카노트","background":"#24344e", "link":"http:www.autoinside.co.kr", "skill":"#JSP #Jquery", "text":"카노트 설명","list_img":["img_list_carnote"], "view_img":["autoinside_view"]},
-   {"title_en":"AUTOINSIDE_ON", "title_kr":"오토인사이드 온","background":"#ffa995", "link":"http:www.on.autoinside.co.kr", "skill":"#JSP #Jquery", "text":"오토인사이드 온 설명","list_img":["img_list_aion"], "view_img":["autohands_view"]},
-   {"title_en":"CADIF", "title_kr":"카디프 부품 검색","background":"#5c8fe2", "link":"http:www.autoinside.co.kr/ewi/index.html", "skill":"#JSP #Jquery", "text":"카디프 부품 검색 설명","list_img":["img_list_cardif"], "view_img":["autoinside_view"]}
+   {"title_en":"AUTOINSIDE", "title_kr":"오토인사이드","background":"#5c8fe2", "link":"http:www.autoinside.co.kr", "skill":"#Jsp #Html #Css #Jquery", "text":"오토인사이드 설명","list_img":["img_list_ai"], "view_img":["autoinside_view"]},
+   {"title_en":"AUTOHANDS", "title_kr":"오토핸즈","background":"#405aa2", "link":"http:www.autohands.co.kr", "skill":"#Jsp #Html #Css #Jquery", "text":"오토핸즈 설명","list_img":["img_list_ah"], "view_img":["autohands_view"]},
+   {"title_en":"CARNOTE", "title_kr":"카노트","background":"#24344e", "link":"http:www.autoinside.co.kr", "skill":"#Jsp #Html #Sass #Css #Jquery", "text":"카노트 설명","list_img":["img_list_carnote"], "view_img":["autoinside_view"]},
+   {"title_en":"AUTOINSIDE_ON", "title_kr":"오토인사이드 온","background":"#ffa995", "link":"http:www.on.autoinside.co.kr", "skill":"#Jsp #Html #Sass #Css #Jquery", "text":"오토인사이드 온 설명","list_img":["img_list_aion"], "view_img":["autohands_view"]},
+   {"title_en":"CADIF", "title_kr":"카디프 부품 검색","background":"#5c8fe2", "link":"http:www.autoinside.co.kr/ewi/index.html", "skill":"#Html #Css #Jquery", "text":"카디프 부품 검색 설명","list_img":["img_list_cardif"], "view_img":["autoinside_view"]}
    
 ]
