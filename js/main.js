@@ -35,9 +35,6 @@ window.onload = () => {
 			// url: `${window.location.origin}/work_list.json`,
 			type: 'GET',
 			dataType: 'JSON',
-			beforeSend: () => {
-				if($wrap.has('.on')) $('.work_view').fadeOut(500);
-			},
 			success: (data) => {
 
 				const [$d_bg, $d_title, $d_img_list] = [$('.work_list .bg'), $('.work_list .title'), $('.work_list .img_list')];
@@ -70,13 +67,8 @@ window.onload = () => {
 				});
 
 				$v_img.html(view_img_html.join(''))
-			},
-			complete: () => {
-				setTimeout(() => {
-					if($wrap.has('.on')) $('.work_view').fadeIn(500);
-				}, 500);
 			}
-		});
+		})
 	}
 
 	const setPage = (url, prev, now) => {
