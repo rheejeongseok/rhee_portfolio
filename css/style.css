@@ -598,6 +598,8 @@
 
 .about03 .exp_title::before {
   right: 50%;
+  transform: translate(50%, 0);
+  -webkit-transform: translate(50%, 0);
 }
 
 .about03 ul {
