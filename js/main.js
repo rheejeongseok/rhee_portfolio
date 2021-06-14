@@ -167,6 +167,11 @@ window.onload = () => {
 		
 	});
 
+	$wrap.on('click','.scr_top',() => {
+		console.log('scrolltop')
+		$wrap.stop().animate({scrollTop:0}, 1000, 'swing')
+	})
+
 	$(window).on('popstate', function (e) {
 		const {url} = e.originalEvent.state
 		setPage(url)
