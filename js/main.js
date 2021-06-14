@@ -33,7 +33,7 @@ window.onload = () => {
 	const getWork = (work) => {
 
 		$.ajax({
-			url: `${window.location.origin}/work_list.json`,
+			url: `../work_list.json`,
 			type: 'GET',
 			dataType: 'JSON',
 			success: (data) => {
@@ -75,7 +75,7 @@ window.onload = () => {
 	const setPage = (url, prev, now) => {
 		
 		$.ajax({
-			url: `${window.location.origin}/html/${url}.html`,
+			url: `../html/${url}.html`,
 			dataType: 'html',
 			beforeSend: () => {
 				init();
