@@ -1,6 +1,6 @@
 window.onload = () => {
 
-	console.log("aaaa")
+	console.log(window.location)
 
 	let [prev_page, now_page] = ['home', 'home'];
 	let work = 0;
