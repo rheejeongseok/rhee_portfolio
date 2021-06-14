@@ -1,7 +1,5 @@
 window.onload = () => {
 
-	console.log(window.location)
-
 	let [prev_page, now_page] = ['home', 'home'];
 	let work = 0;
 	const [min_work, max_work] = [0, 4];
@@ -91,10 +89,10 @@ window.onload = () => {
 					if (url === 'work') getWork(0);
 					if (url === 'about') $wrap.addClass('on');
 					history.pushState({url:url, data:data}, '', url);
+
 					if (url === 'about') $content.show().addClass('about');
 					else if (url === 'work') $content.show().addClass('work');
 					else $content.fadeIn(1000);
-
 				}, 1000)
 			},
 			complete: () => {
@@ -176,9 +174,6 @@ window.onload = () => {
 
 	$.ajax({
 		url: 'index.html',
-		beforeSend: () => {
-			console.log('before')
-		},
 		success: () => {
 			console.log("suc")
 			$('.intro .rhee').addClass('on');
@@ -186,10 +181,7 @@ window.onload = () => {
 				$('.intro').fadeOut(1000);
 				setPage('home');
 			}, 2000)
-		},
-		complete: () => {
-			console.log("complete")
-		}
+		},		
 	})
 
 }
