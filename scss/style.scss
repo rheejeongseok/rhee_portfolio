@@ -164,7 +164,7 @@
       display:flex; width:760px; height:470px; box-sizing:border-box; padding:30px; background:#eee;
 
       .side {
-         width:350px; display:flex; align-items:center;
+         width:400px; display:flex; align-items:center;
 
          li {
             margin-bottom:20px; font-family: 'apple'; font-weight:400; display:flex; align-items:center;
@@ -177,6 +177,10 @@
                width:200px; height:40px; background:white; display:flex; align-items:center; padding-left:10px;
             }
          }
+      }
+
+      .con_text {
+         word-break:keep-all;
       }
 
       .profile {
