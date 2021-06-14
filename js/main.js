@@ -34,6 +34,7 @@ window.onload = () => {
 
 		$.ajax({
 			url: `https://rheejeongseok.github.io/rhee_portfolio/work_list.json`,
+			// url: `${window.location.origin}/work_list.json`,
 			type: 'GET',
 			dataType: 'JSON',
 			success: (data) => {
@@ -76,6 +77,7 @@ window.onload = () => {
 		
 		$.ajax({
 			url: `https://rheejeongseok.github.io/rhee_portfolio/html/${url}.html`,
+			// url: `${window.location.origin}/html/${url}.html`,
 			dataType: 'html',
 			beforeSend: () => {
 				init();
@@ -101,7 +103,6 @@ window.onload = () => {
 					if (url === 'home') action_home();
 					
 				}, 2000)
-
 			}
 		});
 	}
@@ -142,25 +143,31 @@ window.onload = () => {
 				$work_view.fadeIn(1000);
 			})
 
-	})
+	});
 
-	$('.menu a').click(e => {
+	/* $('.menu a').click(e => {
 		e.preventDefault();
 		const url = e.target.dataset['url'];
+		const $contact = $('.contact');
 
 		prev_page = now_page;
 		now_page = url;
-		console.log(prev_page, now_page)
+		if(url === 'contact'){
+			if($contact.is(':visible')) console.log("visible")
+			else console.log("no")
+		}else setPage(now_page, prev_page, now_page)
+		
+	}); */
+
+	$('.menu a[data-url]').click(e => {
+		e.preventDefault();
+		const url = e.target.dataset['url'];
+		
+		prev_page = now_page;
+		now_page = url;
 		setPage(now_page, prev_page, now_page)
-
+		
 	});
-
-	/* window.onpopstate = (e) => {
-      setPage(prev_page);
-			console.log(e)
-			console.log(e.originalEvent)
-			console.log(window.location.hash)
-   } */
 
 	$(window).on('popstate', function (e) {
 		const {url} = e.originalEvent.state
