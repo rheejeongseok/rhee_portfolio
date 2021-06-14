@@ -33,7 +33,7 @@ window.onload = () => {
 	const getWork = (work) => {
 
 		$.ajax({
-			url: `${window.location.href}/work_list.json`,
+			url: `https://rheejeongseok.github.io/rhee_portfolio/work_list.json`,
 			type: 'GET',
 			dataType: 'JSON',
 			success: (data) => {
@@ -75,7 +75,7 @@ window.onload = () => {
 	const setPage = (url, prev, now) => {
 		
 		$.ajax({
-			url: `${window.location.href}/html/${url}.html`,
+			url: `https://rheejeongseok.github.io/rhee_portfolio/html/${url}.html`,
 			dataType: 'html',
 			beforeSend: () => {
 				init();
