@@ -605,7 +605,7 @@
 }
 
 .about03 ul li .can::before {
-  content: '🖕';
+  content: '🏆';
   position: absolute;
   left: -27px;
 }
