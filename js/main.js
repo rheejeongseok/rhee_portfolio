@@ -75,7 +75,7 @@ window.onload = () => {
 	const setPage = (url, prev, now) => {
 		
 		$.ajax({
-			url: `https://rheejeongseok.github.io/rhee_portfolio//html/${url}.html`,
+			url: `https://rheejeongseok.github.io/rhee_portfolio/html/${url}.html`,
 			dataType: 'html',
 			beforeSend: () => {
 				init();
