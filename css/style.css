@@ -737,10 +737,11 @@
 
 .scr_top {
   position: fixed;
-  bottom: 20px;
-  right: 20px;
+  bottom: 50px;
+  left: 50%;
   width: 65px;
   height: 65px;
+  transform: translate(-50%, 0);
   background: url("../images/arrow_top.png") no-repeat;
   background-size: 100%;
   text-indent: -9999px;

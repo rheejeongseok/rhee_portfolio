@@ -23,8 +23,8 @@ window.onload = () => {
 	const getWork = (work) => {
 
 		$.ajax({
-			url: `https://rheejeongseok.github.io/rhee_portfolio/work_list.json`,
-			// url: `${window.location.origin}/work_list.json`,
+			// url: `https://rheejeongseok.github.io/rhee_portfolio/work_list.json`,
+			url: `${window.location.origin}/work_list.json`,
 			type: 'GET',
 			dataType: 'JSON',
 			success: (data) => {
@@ -44,7 +44,7 @@ window.onload = () => {
 				const list_img_html = list_img.map(e => {
 					return `
                   <div class="${e}">
-                     <img src="./images/${e}.png" alt="" />
+                     <img src="./images/${e}.png" alt="${title_kr} 리스트 이미지" />
                   </div>
                `
 				});
@@ -54,7 +54,7 @@ window.onload = () => {
 
 				const view_img_html = view_img.map(e => {
 					return `
-                  <img src="./images/${e}.png" alt="" />
+                  <img src="./images/${e}.png" alt="${title_kr} 상세 이미지" />
                `
 				});
 
@@ -67,8 +67,8 @@ window.onload = () => {
 	const setPage = (url, prev, now) => {
 		
 		$.ajax({
-			url: `https://rheejeongseok.github.io/rhee_portfolio/html/${url}.html`,
-			// url: `${window.location.origin}/html/${url}.html`,
+			// url: `https://rheejeongseok.github.io/rhee_portfolio/html/${url}.html`,
+			url: `${window.location.origin}/html/${url}.html`,
 			dataType: 'html',
 			beforeSend: () => {
 				init();
@@ -104,7 +104,7 @@ window.onload = () => {
 
 		const $now = $('.work_num .now');
 		const type = e.target.getAttribute('class');
-		type === "prev" ? (work <= min_work ? work = min_work : work = work - 1) : (work >= max_work ? work = max_work : work = work + 1)
+		type === "prev" ? (work <= min_work ? work = max_work : work = work - 1) : (work >= max_work ? work = min_work : work = work + 1)
 		if($wrap.has('.on')) $('html,body').scrollTop(0);
 		$now.text(`0${work+1}`)
 		getWork(work)
