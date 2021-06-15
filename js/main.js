@@ -39,8 +39,8 @@ window.onload = () => {
 				$v_skills.text(skill);
 				$v_title_en.text(title_en);
 				$v_title_kr.text(title_kr);
-				$v_link.attr('data-url', link);
-				$v_link.attr('href', link);
+				$v_link.attr('onclick', `window.open(${link})`);
+				// $v_link.attr('href', link);
 				$v_con_text.text(text);
 				$v_con_text.append(`<div class="work_date">프로젝트 기간 : ${work_date}</div>`)
 
@@ -143,10 +143,10 @@ window.onload = () => {
 
 	});
 
-	$wrap.on('click','.site_info .link',(e) => {
+	/* $wrap.on('click','.site_info .link',(e) => {
 		const url = e.target.dataset['url'];
 		window.location.href=url;
-	})
+	}) */
 
 	/* 카테고리 클릭 */
 	$('.menu a[data-url]').click(e => {
