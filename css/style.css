@@ -101,13 +101,13 @@
 }
 
 .wrap.on .btns .prev {
-  background: url("../images/arrow_view_left.png") no-repeat;
-  background-size: 100%;
+  background: url("../images/arrow_view_left.png") center no-repeat;
+  background-size: 39px 21px;
 }
 
 .wrap.on .btns .next {
-  background: url("../images/arrow_view_right.png") no-repeat;
-  background-size: 100%;
+  background: url("../images/arrow_view_right.png") center no-repeat;
+  background-size: 39px 21px;
 }
 
 .wrap.on .work_list .bg .title {
@@ -289,15 +289,15 @@
 }
 
 .work_list .btns a.prev {
-  background: url("../images/arrow_list_left.png") no-repeat;
-  background-size: 100%;
-  margin-left: 20px;
+  background: url("../images/arrow_list_left.png") center no-repeat;
+  background-size: 39px 21px;
+  padding: 20px;
 }
 
 .work_list .btns a.next {
-  background: url("../images/arrow_list_right.png") no-repeat;
-  background-size: 100%;
-  margin-right: 20px;
+  background: url("../images/arrow_list_right.png") center no-repeat;
+  background-size: 39px 21px;
+  padding: 20px;
 }
 
 .work_list ul {
@@ -619,8 +619,10 @@
 
 .about03 ul li .do {
   font-size: 22px;
-  line-height: 1.3;
+  line-height: 1.5;
   word-break: keep-all;
+  display: flex;
+  flex-direction: column;
 }
 
 .about03 .dots {
