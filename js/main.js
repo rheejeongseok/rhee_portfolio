@@ -23,8 +23,8 @@ window.onload = () => {
 	const getWork = (work) => {
 
 		$.ajax({
-			// url: `https://rheejeongseok.github.io/rhee_portfolio/work_list.json`,
-			url: `${window.location.origin}/work_list.json`,
+			url: `https://rheejeongseok.github.io/rhee_portfolio/work_list.json`,
+			// url: `${window.location.origin}/work_list.json`,
 			type: 'GET',
 			dataType: 'JSON',
 			success: (data) => {
