@@ -477,6 +477,14 @@
   flex: 2;
   word-break: keep-all;
   line-height: 1.5;
+  position: relative;
+}
+
+.work_view .site_info .con_text .work_date {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  font-size: 18px;
 }
 
 .work_view .img_wrap {

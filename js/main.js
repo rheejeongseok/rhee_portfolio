@@ -31,7 +31,7 @@ window.onload = () => {
 
 				const [$d_bg, $d_title, $d_img_list] = [$('.work_list .bg'), $('.work_list .title'), $('.work_list .img_list')];
 				const [$v_work_img, $v_skills, $v_title_en, $v_title_kr, $v_link, $v_con_text, $v_img] = [$('.work_img'), $('.skills'), $('.title_en'), $('.title_kr'), $('.link'), $('.con_text'), $('.img_wrap')]
-				const {title_en, title_kr, background, link, skill, text, list_img, view_img} = data[work];
+				const {title_en, title_kr, background, link, skill, text, work_date, list_img, view_img} = data[work];
 
 				$d_bg.css('background', background);
 				$d_title.html(`<p>${title_en}</p>`);
@@ -40,6 +40,7 @@ window.onload = () => {
 				$v_title_kr.text(title_kr);
 				$v_link.attr('href', link);
 				$v_con_text.text(text);
+				$v_con_text.append(`<div class="work_date">프로젝트 기간 : ${work_date}</div>`)
 
 				const list_img_html = list_img.map(e => {
 					return `
