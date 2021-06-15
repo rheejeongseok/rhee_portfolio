@@ -39,7 +39,7 @@ window.onload = () => {
 				$v_skills.text(skill);
 				$v_title_en.text(title_en);
 				$v_title_kr.text(title_kr);
-				$v_link.attr('onclick', `window.open("${link}")`);
+				$v_link.attr('href', `javascript:window.open("${link}")`);
 				// $v_link.attr('href', link);
 				$v_con_text.text(text);
 				$v_con_text.append(`<div class="work_date">프로젝트 기간 : ${work_date}</div>`)
