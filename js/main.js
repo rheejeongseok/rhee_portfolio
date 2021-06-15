@@ -5,29 +5,21 @@ window.onload = () => {
 	const [min_work, max_work] = [0, 4];
 	const [$wrap, $content] = [$('.wrap'), $('.content')];
 
+	/* 초기화 */
 	const init = () => {
-		$wrap.removeClass('on');
+		$wrap.removeClass('on work about home');
 	}
 
+	/* 메인 애니메이션 */
 	const action_home = () => {
-		const text = new TypeIt("#txt_name", {
-			strings: ["이정석"],
+		const text = new TypeIt("#my_text", {
+			speed:50,
 			waitUntilVisible: true,
-			afterComplete: () => {
-				const instance = new TypeIt('#txt_age', {
-					strings: ["Look, it's rainbow text!"],
-					waitUntilVisible: true,
-					afterComplete: () => {
-						const instance = new TypeIt('#txt_my', {
-							strings: ["Look, it's rainbow text!"],
-							waitUntilVisible: true,
-						}).go();
-					}
-				}).go();
-			}
-		}).go();
+		}).type("이정석, 4년차", {delay:500}).move(-2).delete(1).type(3).move('end').type(' 음악을 좋아하는').pause(300).type(' 감성 가득 퍼블리셔!')
+			.go();
 	}
 
+	/* 포트폴리오 작업 리스트 */
 	const getWork = (work) => {
 
 		$.ajax({
@@ -71,6 +63,7 @@ window.onload = () => {
 		})
 	}
 
+	/* 페이지 세팅 */
 	const setPage = (url, prev, now) => {
 		
 		$.ajax({
@@ -85,19 +78,20 @@ window.onload = () => {
 			},
 			success: (data) => {
 				setTimeout(() => {
+					$wrap.addClass(url)
 					$content.html(data);
 					if (url === 'work') getWork(0);
 					if (url === 'about') $wrap.addClass('on');
 					history.pushState({url:url, data:data}, '', url);
 
-					if (url === 'about') $content.show().addClass('about');
-					else if (url === 'work') $content.show().addClass('work');
+					if (url === 'about') $content.show().addClass('about_ani');
+					else if (url === 'work') $content.show().addClass('work_ani');
 					else $content.fadeIn(1000);
 				}, 1000)
 			},
 			complete: () => {
 				setTimeout(() => {
-					$content.removeClass('about work')
+					$content.removeClass('about_ani work_ani')
 					if (url === 'home') action_home();
 					
 				}, 2000)
@@ -105,26 +99,29 @@ window.onload = () => {
 		});
 	}
 
-
-
+	/* 포트폴리오 리스트 버튼 */
 	$wrap.on('click', '.btns a', e => {
 
+		const $now = $('.work_num .now');
 		const type = e.target.getAttribute('class');
 		type === "prev" ? (work <= min_work ? work = min_work : work = work - 1) : (work >= max_work ? work = max_work : work = work + 1)
-
+		if($wrap.has('.on')) $('html,body').scrollTop(0);
+		$now.text(`0${work+1}`)
 		getWork(work)
 
 	});
 
+	/* 포트폴리오 클릭 */
 	$wrap.on('click', '.work_list ul', e => {
 
-		const [$wl, $img_list, $work_view] = [$('.work_list'), $('.img_list'), $('.work_view')];
+		const [$wl, $img_list, $work_num, $work_view] = [$('.work_list'), $('.img_list'), $('.work_num'), $('.work_view')];
 
 		const [left, top, height, width] = [$wl.position().left, $wl.position().top, $wl.height(), $wl.width()];
 
 		now_page === 'work' && $('.wrap').addClass('on')
 
 		$img_list.fadeOut(500);
+		$work_num.hide();
 		$wl.css({
 				'position': 'absolute',
 				"left": left,
@@ -143,47 +140,34 @@ window.onload = () => {
 
 	});
 
-	/* $('.menu a').click(e => {
-		e.preventDefault();
-		const url = e.target.dataset['url'];
-		const $contact = $('.contact');
-
-		prev_page = now_page;
-		now_page = url;
-		if(url === 'contact'){
-			if($contact.is(':visible')) console.log("visible")
-			else console.log("no")
-		}else setPage(now_page, prev_page, now_page)
-		
-	}); */
-
+	/* 카테고리 클릭 */
 	$('.menu a[data-url]').click(e => {
 		e.preventDefault();
 		const url = e.target.dataset['url'];
-		
 		prev_page = now_page;
 		now_page = url;
-		setPage(now_page, prev_page, now_page)
-		
+		setPage(now_page, prev_page, now_page);
 	});
 
+	/* 스크롤 맨위 */
 	$wrap.on('click','.scr_top',() => {
-		console.log('scrolltop')
 		$('html, body').stop().animate({scrollTop:0}, 1000, 'swing')
 	})
 
+	/* 뒤로 가기 시 페이지 세팅 */
 	$(window).on('popstate', function (e) {
 		const {url} = e.originalEvent.state
 		setPage(url)
 	})
 
+	/* 처음 로딩화면 세팅 */
 	$.ajax({
 		url: 'index.html',
 		success: () => {
 			$('.intro .rhee').addClass('on');
 			setTimeout(() => {
 				$('.intro').fadeOut(1000);
-				setPage('home');
+				setPage(now_page);
 			}, 2000)
 		},		
 	})

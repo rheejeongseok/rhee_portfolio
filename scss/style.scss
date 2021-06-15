@@ -82,11 +82,20 @@
 
    .btns {
       position:fixed; max-width: 1550px; left: 50%; transform: translate(-50%, 0);
+
+      .prev {
+         background:url('../images/arrow_view_left.png') no-repeat; background-size:100%;
+      }
+
+      .next {
+         background:url('../images/arrow_view_right.png') no-repeat; background-size:100%;
+      }
    }
 
    .work_list {
       .bg {
          .title {
+            font-size:60px;
             p {
                padding-left:0; animation:none;
             }
@@ -161,39 +170,10 @@
    width:100%; height:100%; display:flex; align-items:center; justify-content:center;
 
    .post_card {
-      display:flex; width:760px; height:470px; box-sizing:border-box; padding:30px; background:#eee;
-
-      .side {
-         width:350px; display:flex; align-items:center;
-
-         li {
-            margin-bottom:20px; font-family: 'apple'; font-weight:400; display:flex; align-items:center;
-
-            .tit {
-               display:inline-block; margin-right:5px;
-            }
-
-            .txt {
-               width:200px; height:40px; background:white; display:flex; align-items:center; padding-left:10px;
-            }
-         }
-      }
-
-
-      .profile {
-         width:300px; background:rgb(250, 250, 210); display:flex; flex-direction:column; justify-content:center; align-items:center;
-
-         .img {
-            width:100px; height:100px; border-radius:50%; overflow:hidden; border:5px solid #d08080; background:blue; margin-bottom:50px;
-         }
-
-         .birth {
-            margin-bottom:20px; font-size:20px; font-weight:400;
-         }
-
-         .sns {
-            font-size:20px; font-weight:400;
-         }
+      display:flex; width:1000px; height:662px; background:url('../images//main_bg.png') no-repeat; background-size:100%; position:relative;
+      
+      .my_text {
+         position:absolute; bottom: 228px; left: 250px; font-size: 18px; width: 410px;
       }
    }
 }
@@ -206,19 +186,22 @@
       position:absolute; top:50%; left:0; transform:translate(0, -50%); display:flex; justify-content: space-between; width:100%;
 
       a {
-         width:30px;
-         height:30px;
-         text-align:center;
-         padding:10px;
-         
-         &:last-child {
-            margin-left:20px;
+         width:39px;
+         height:21px;
+         text-indent:-9999px;
+
+         &.prev {
+            background:url('../images/arrow_list_left.png') no-repeat; background-size:100%; margin-left:20px;
+         }
+
+         &.next {
+            background:url('../images/arrow_list_right.png') no-repeat; background-size:100%; margin-right:20px;
          }
       }
    }
 
    ul {
-      width:100%; height:100%; position:relative;
+      width:100%; height:100%; position:relative; cursor:pointer;
 
       li {
          width:100%; height:100%; position:relative;
@@ -227,14 +210,14 @@
             width:100%; height:100%; background:blanchedalmond; transition:1s;
 
             .title {
-               position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:100px; font-weight:700; letter-spacing:20px; color:#ffffff; width:100%; text-align:center;
+               position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:100px; font-weight:700; letter-spacing:20px; color:#ffffff; width:100%; text-align:center; transition:2s;
                overflow:hidden;
 
                p {
                   margin:0; padding-left:100%; display:inline-block; white-space:nowrap; 
                   animation-name:flow_text;
                   animation-timing-function:cubic-bezier(0.74, 0.34, 0.18, 0.74);
-                  animation-duration:10s;
+                  animation-duration:7s;
                   animation-iteration-count:infinite;
 
                   &::after {
@@ -289,6 +272,11 @@
          }
       }
    }
+
+   .work_num {
+      text-align: center; font-size: 20px; margin-top: 10px; font-weight: 600; color: #343434; letter-spacing:2px;
+   }
+
 }
 
 
@@ -298,6 +286,12 @@
 
    .work_img {
       text-align:center; margin-bottom:40px;
+
+      .img_list_carnote {
+         img {
+            margin-left:-240px;
+         }
+      }
    }
 
    .skills {
@@ -358,7 +352,7 @@
       }
 
       .more {
-         font-size:150px;
+         font-size:150px; font-family: 'Noto Sans kr'; font-style: italic; font-weight: 900; margin-top: -70px;
       }
    }
 
@@ -483,15 +477,15 @@
 }
 
 .scr_top {
-   position:fixed; bottom:20px; right:20px;
+   position:fixed; bottom:20px; right:20px; width:65px; height:65px; background:url('../images/arrow_top.png') no-repeat; background-size:100%; text-indent:-9999px;
 }
 
-.about {
+.about_ani {
 	-webkit-animation: about 0.6s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
 	        animation: about 0.6s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
 }
 
-.work {
+.work_ani {
 	-webkit-animation: puff-in-center 0.7s cubic-bezier(0.470, 0.000, 0.745, 0.715) both;
 	        animation: puff-in-center 0.7s cubic-bezier(0.470, 0.000, 0.745, 0.715) both;
 }

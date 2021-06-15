@@ -100,6 +100,20 @@
   transform: translate(-50%, 0);
 }
 
+.wrap.on .btns .prev {
+  background: url("../images/arrow_view_left.png") no-repeat;
+  background-size: 100%;
+}
+
+.wrap.on .btns .next {
+  background: url("../images/arrow_view_right.png") no-repeat;
+  background-size: 100%;
+}
+
+.wrap.on .work_list .bg .title {
+  font-size: 60px;
+}
+
 .wrap.on .work_list .bg .title p {
   padding-left: 0;
   animation: none;
@@ -235,69 +249,19 @@
 
 .main_home .post_card {
   display: flex;
-  width: 760px;
-  height: 470px;
-  box-sizing: border-box;
-  padding: 30px;
-  background: #eee;
+  width: 1000px;
+  height: 662px;
+  background: url("../images//main_bg.png") no-repeat;
+  background-size: 100%;
+  position: relative;
 }
 
-.main_home .post_card .side {
-  width: 350px;
-  display: flex;
-  align-items: center;
-}
-
-.main_home .post_card .side li {
-  margin-bottom: 20px;
-  font-family: 'apple';
-  font-weight: 400;
-  display: flex;
-  align-items: center;
-}
-
-.main_home .post_card .side li .tit {
-  display: inline-block;
-  margin-right: 5px;
-}
-
-.main_home .post_card .side li .txt {
-  width: 200px;
-  height: 40px;
-  background: white;
-  display: flex;
-  align-items: center;
-  padding-left: 10px;
-}
-
-.main_home .post_card .profile {
-  width: 300px;
-  background: lightgoldenrodyellow;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.main_home .post_card .profile .img {
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-  overflow: hidden;
-  border: 5px solid #d08080;
-  background: blue;
-  margin-bottom: 50px;
-}
-
-.main_home .post_card .profile .birth {
-  margin-bottom: 20px;
-  font-size: 20px;
-  font-weight: 400;
-}
-
-.main_home .post_card .profile .sns {
-  font-size: 20px;
-  font-weight: 400;
+.main_home .post_card .my_text {
+  position: absolute;
+  bottom: 228px;
+  left: 250px;
+  font-size: 18px;
+  width: 410px;
 }
 
 .work_list {
@@ -319,20 +283,28 @@
 }
 
 .work_list .btns a {
-  width: 30px;
-  height: 30px;
-  text-align: center;
-  padding: 10px;
+  width: 39px;
+  height: 21px;
+  text-indent: -9999px;
 }
 
-.work_list .btns a:last-child {
+.work_list .btns a.prev {
+  background: url("../images/arrow_list_left.png") no-repeat;
+  background-size: 100%;
   margin-left: 20px;
+}
+
+.work_list .btns a.next {
+  background: url("../images/arrow_list_right.png") no-repeat;
+  background-size: 100%;
+  margin-right: 20px;
 }
 
 .work_list ul {
   width: 100%;
   height: 100%;
   position: relative;
+  cursor: pointer;
 }
 
 .work_list ul li {
@@ -359,6 +331,7 @@
   color: #ffffff;
   width: 100%;
   text-align: center;
+  transition: 2s;
   overflow: hidden;
 }
 
@@ -369,7 +342,7 @@
   white-space: nowrap;
   animation-name: flow_text;
   animation-timing-function: cubic-bezier(0.74, 0.34, 0.18, 0.74);
-  animation-duration: 10s;
+  animation-duration: 7s;
   animation-iteration-count: infinite;
 }
 
@@ -435,6 +408,15 @@
   width: 80%;
 }
 
+.work_list .work_num {
+  text-align: center;
+  font-size: 20px;
+  margin-top: 10px;
+  font-weight: 600;
+  color: #343434;
+  letter-spacing: 2px;
+}
+
 .work_view {
   display: none;
   width: 100%;
@@ -448,6 +430,10 @@
 .work_view .work_img {
   text-align: center;
   margin-bottom: 40px;
+}
+
+.work_view .work_img .img_list_carnote img {
+  margin-left: -240px;
 }
 
 .work_view .skills {
@@ -538,6 +524,10 @@
 
 .about01 .my .more {
   font-size: 150px;
+  font-family: 'Noto Sans kr';
+  font-style: italic;
+  font-weight: 900;
+  margin-top: -70px;
 }
 
 .about01 .my_exp {
@@ -749,13 +739,18 @@
   position: fixed;
   bottom: 20px;
   right: 20px;
+  width: 65px;
+  height: 65px;
+  background: url("../images/arrow_top.png") no-repeat;
+  background-size: 100%;
+  text-indent: -9999px;
 }
 
-.about {
+.about_ani {
   animation: about 0.6s cubic-bezier(0.39, 0.575, 0.565, 1) both;
 }
 
-.work {
+.work_ani {
   animation: puff-in-center 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) both;
 }
 
