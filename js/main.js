@@ -23,8 +23,8 @@ window.onload = () => {
 	const getWork = (work) => {
 
 		$.ajax({
-			url: `https://rheejeongseok.github.io/rhee_portfolio/work_list.json`,
-			// url: `${window.location.origin}/work_list.json`,
+			// url: `https://rheejeongseok.github.io/rhee_portfolio/work_list.json`,
+			url: `${window.location.origin}/work_list.json`,
 			type: 'GET',
 			dataType: 'JSON',
 			success: (data) => {
@@ -39,7 +39,7 @@ window.onload = () => {
 				$v_skills.text(skill);
 				$v_title_en.text(title_en);
 				$v_title_kr.text(title_kr);
-				$v_link.attr('href', `javascript:window.open("${link}")`);
+				$v_link.attr({'data-url':link,"data-site":title_en});
 				// $v_link.attr('href', link);
 				$v_con_text.text(text);
 				$v_con_text.append(`<div class="work_date">프로젝트 기간 : ${work_date}</div>`)
@@ -70,8 +70,8 @@ window.onload = () => {
 	const setPage = (url) => {
 		
 		$.ajax({
-			url: `https://rheejeongseok.github.io/rhee_portfolio/html/${url}.html`,
-			// url: `${window.location.origin}/html/${url}.html`,
+			// url: `https://rheejeongseok.github.io/rhee_portfolio/html/${url}.html`,
+			url: `${window.location.origin}/html/${url}.html`,
 			dataType: 'html',
 			beforeSend: () => {
 				init();
@@ -143,10 +143,12 @@ window.onload = () => {
 
 	});
 
-	/* $wrap.on('click','.site_info .link',(e) => {
-		const url = e.target.dataset['url'];
-		window.location.href=url;
-	}) */
+	/* 사이트 링크 클릭 */
+	$wrap.on('click','.site_info .link',(e) => {
+		const [url,site] = [e.target.dataset['url'],e.target.dataset['site']];
+		if(site === 'CARNOTE') alert(url);
+		else window.open(`http://${url}`)
+	})
 
 	/* 카테고리 클릭 */
 	$('.menu a[data-url]').click(e => {
