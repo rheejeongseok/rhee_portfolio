@@ -23,13 +23,11 @@ window.onload = () => {
 	const getWork = (work) => {
 
 		$.ajax({
-			// url: `https://rheejeongseok.github.io/rhee_portfolio/work_list.json`,
-			url: `${window.location.origin}/work_list.json`,
+			url: `https://rheejeongseok.github.io/rhee_portfolio/work_list.json`,
+			// url: `${window.location.origin}/work_list.json`,
 			type: 'GET',
 			dataType: 'JSON',
 			success: (data) => {
-				console.log(JSON.stringify(data))
-				console.log(data)
 				const [$d_bg, $d_title, $d_img_list] = [$('.work_list .bg'), $('.work_list .title'), $('.work_list .img_list')];
 				const [$v_work_img, $v_skills, $v_title_en, $v_title_kr, $v_link, $v_con_text, $v_img] = [$('.work_img'), $('.skills'), $('.title_en'), $('.title_kr'), $('.link'), $('.con_text'), $('.img_wrap')]
 				const {title_en, title_kr, background, link, skill, text, work_date, list_img, view_img} = data[work];
@@ -42,7 +40,7 @@ window.onload = () => {
 				$v_link.attr({'data-url':link,"data-site":title_en});
 				// $v_link.attr('href', link);
 				$v_con_text.text(text);
-				$v_con_text.append(`<div class="work_date">프로젝트 기간 : ${work_date}</div>`)
+				$v_con_text.append(`<div class="work_date">프로젝트 기간 : ${work_date}</div>`);
 
 				const list_img_html = list_img.map(e => {
 					return `
@@ -61,7 +59,7 @@ window.onload = () => {
                `
 				});
 
-				$v_img.html(view_img_html.join(''))
+				$v_img.html(view_img_html.join(''));
 			}
 		})
 	}
@@ -70,8 +68,8 @@ window.onload = () => {
 	const setPage = (url) => {
 		
 		$.ajax({
-			// url: `https://rheejeongseok.github.io/rhee_portfolio/html/${url}.html`,
-			url: `${window.location.origin}/html/${url}.html`,
+			url: `https://rheejeongseok.github.io/rhee_portfolio/html/${url}.html`,
+			// url: `${window.location.origin}/html/${url}.html`,
 			dataType: 'html',
 			beforeSend: () => {
 				init();
@@ -81,7 +79,7 @@ window.onload = () => {
 			},
 			success: (data) => {
 				setTimeout(() => {
-					$wrap.addClass(url)
+					$wrap.addClass(url);
 					$content.html(data);
 					if (url === 'work') getWork(0);
 					if (url === 'about') $wrap.addClass('on');
@@ -94,10 +92,10 @@ window.onload = () => {
 			},
 			complete: () => {
 				setTimeout(() => {
-					$content.removeClass('about_ani work_ani')
+					$content.removeClass('about_ani work_ani');
 					if (url === 'home') action_home();
 					
-				}, 2000)
+				}, 2000);
 			}
 		});
 	}
@@ -121,25 +119,14 @@ window.onload = () => {
 
 		const [left, top, height, width] = [$wl.position().left, $wl.position().top, $wl.height(), $wl.width()];
 
-		now_page === 'work' && $('.wrap').addClass('on')
+		now_page === 'work' && $('.wrap').addClass('on');
 
 		$img_list.fadeOut(500);
 		$work_num.hide();
-		$wl.css({
-				'position': 'absolute',
-				"left": left,
-				"top": top,
-				"height": height,
-				'width': width
-			})
-			.animate({
-				'left': 0,
-				'top': 0,
-				'height': '200px',
-				'width': '100%'
-			}, 1500, () => {
+		$wl.css({'position': 'absolute', "left": left, "top": top, "height": height, 'width': width})
+			.animate({'left': 0, 'top': 0, 'height': '200px', 'width': '100%' }, 1500, () => {
 				$work_view.fadeIn(1000);
-			})
+			});
 
 	});
 
@@ -147,7 +134,7 @@ window.onload = () => {
 	$wrap.on('click','.site_info .link',(e) => {
 		const [url,site] = [e.target.dataset['url'],e.target.dataset['site']];
 		if(site === 'CARNOTE') alert(url);
-		else window.open(`http://${url}`)
+		else window.open(`http://${url}`);
 	})
 
 	/* 카테고리 클릭 */
@@ -161,13 +148,13 @@ window.onload = () => {
 
 	/* 스크롤 맨위 */
 	$wrap.on('click','.scr_top',() => {
-		$('html, body').stop().animate({scrollTop:0}, 1000, 'swing')
+		$('html, body').stop().animate({scrollTop:0}, 1000, 'swing');
 	})
 
 	/* 뒤로 가기 시 페이지 세팅 */
 	$(window).on('popstate', function (e) {
-		const {url} = e.originalEvent.state
-		setPage(url)
+		const {url} = e.originalEvent.state;
+		setPage(url);
 	})
 
 	/* 처음 로딩화면 세팅 */
@@ -178,7 +165,7 @@ window.onload = () => {
 			setTimeout(() => {
 				$('.intro').fadeOut(1000);
 				setPage(now_page);
-			}, 2000)
+			}, 2000);
 		},		
 	})
 
