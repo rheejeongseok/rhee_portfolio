@@ -645,6 +645,10 @@
   padding: 100px 200px;
 }
 
+.about04 .qna_list {
+  margin-top: 90px;
+}
+
 .about04 li {
   display: flex;
   justify-content: space-between;
