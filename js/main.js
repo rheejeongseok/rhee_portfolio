@@ -23,21 +23,23 @@ window.onload = () => {
 	const getWork = (work) => {
 
 		$.ajax({
-			url: `https://rheejeongseok.github.io/rhee_portfolio/work_list.json`,
-			// url: `${window.location.origin}/work_list.json`,
+			// url: `https://rheejeongseok.github.io/rhee_portfolio/work_list.json`,
+			url: `${window.location.origin}/work_list.json`,
 			type: 'GET',
 			dataType: 'JSON',
 			success: (data) => {
-
+				console.log(JSON.stringify(data))
+				console.log(data)
 				const [$d_bg, $d_title, $d_img_list] = [$('.work_list .bg'), $('.work_list .title'), $('.work_list .img_list')];
 				const [$v_work_img, $v_skills, $v_title_en, $v_title_kr, $v_link, $v_con_text, $v_img] = [$('.work_img'), $('.skills'), $('.title_en'), $('.title_kr'), $('.link'), $('.con_text'), $('.img_wrap')]
 				const {title_en, title_kr, background, link, skill, text, work_date, list_img, view_img} = data[work];
-
+				
 				$d_bg.css('background', background);
 				$d_title.html(`<p>${title_en}</p>`);
 				$v_skills.text(skill);
 				$v_title_en.text(title_en);
 				$v_title_kr.text(title_kr);
+				$v_link.attr('data-url', link);
 				$v_link.attr('href', link);
 				$v_con_text.text(text);
 				$v_con_text.append(`<div class="work_date">프로젝트 기간 : ${work_date}</div>`)
@@ -65,7 +67,7 @@ window.onload = () => {
 	}
 
 	/* 페이지 세팅 */
-	const setPage = (url, prev, now) => {
+	const setPage = (url) => {
 		
 		$.ajax({
 			url: `https://rheejeongseok.github.io/rhee_portfolio/html/${url}.html`,
@@ -140,6 +142,11 @@ window.onload = () => {
 			})
 
 	});
+
+	$wrap.on('click','.site_info .link',(e) => {
+		const url = e.target.dataset['url'];
+		window.location.href=url;
+	})
 
 	/* 카테고리 클릭 */
 	$('.menu a[data-url]').click(e => {
