@@ -1,5 +1,5 @@
 window.onload = () => {
-
+	console.log(window.location.origin)
 	let [prev_page, now_page] = ['home', 'home'];
 	let work = 0;
 	const [min_work, max_work] = [0, 4];
@@ -15,7 +15,7 @@ window.onload = () => {
 		const text = new TypeIt("#my_text", {
 			speed:50,
 			waitUntilVisible: true,
-		}).type("이정석, 4년차", {delay:500}).move(-2).delete(1).type(3).move('end').type(' 음악을 좋아하는').pause(300).type(' 감성 가득 퍼블리셔!')
+		}).type("이정석, 5년차", {delay:500}).move(-2).delete(1).type(6).move('end').type(' 음악을 좋아하는').pause(300).type(' 감성 가득 퍼블리셔!')
 			.go();
 	}
 
@@ -23,8 +23,8 @@ window.onload = () => {
 	const getWork = (work) => {
 
 		$.ajax({
-			url: `https://rheejeongseok.github.io/rhee_portfolio/work_list.json`,
-			// url: `${window.location.origin}/work_list.json`,
+			// url: `https://rheejeongseok.github.io/rhee_portfolio/work_list.json`,
+			url: `${window.location.origin}/rhee_portfolio/work_list.json`,
 			type: 'GET',
 			dataType: 'JSON',
 			success: (data) => {
@@ -68,8 +68,8 @@ window.onload = () => {
 	const setPage = (url) => {
 		
 		$.ajax({
-			url: `https://rheejeongseok.github.io/rhee_portfolio/html/${url}.html`,
-			// url: `${window.location.origin}/html/${url}.html`,
+			// url: `https://rheejeongseok.github.io/rhee_portfolio/html/${url}.html`,
+			url: `${window.location.origin}/rhee_portfolio/html/${url}.html`,
 			dataType: 'html',
 			beforeSend: () => {
 				init();
@@ -101,7 +101,7 @@ window.onload = () => {
 	}
 
 	/* 포트폴리오 리스트 버튼 */
-	$wrap.on('click', '.btns a', e => {
+	$wrap.on('click', 'a.btns', e => {
 
 		const $now = $('.work_num .now');
 		const type = e.target.getAttribute('class');
