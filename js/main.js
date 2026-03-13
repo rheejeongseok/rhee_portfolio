@@ -1,6 +1,7 @@
 window.onload = () => {
 	console.log(window.location.origin)
 	let [prev_page, now_page] = ['home', 'home'];
+	let pageArray = [];
 	let work = 0;
 	const [min_work, max_work] = [0, 4];
 	const [$wrap, $content] = [$('.wrap'), $('.content')];
@@ -13,9 +14,11 @@ window.onload = () => {
 	/* 메인 애니메이션 */
 	const action_home = () => {
 		const text = new TypeIt("#my_text", {
-			speed:50,
-			waitUntilVisible: true,
-		}).type("이정석, 5년차", {delay:500}).move(-2).delete(1).type(6).move('end').type(' 음악을 좋아하는').pause(300).type(' 감성 가득 퍼블리셔!')
+				speed: 50,
+				waitUntilVisible: true,
+			}).type("이정석, 6년차", {
+				delay: 500
+			}).move(-2).delete(1).type(7).move('end').type(' 음악을 좋아하는').pause(300).type(' 감성 가득 퍼블리셔!')
 			.go();
 	}
 
@@ -30,14 +33,27 @@ window.onload = () => {
 			success: (data) => {
 				const [$d_bg, $d_title, $d_img_list] = [$('.work_list .bg'), $('.work_list .title'), $('.work_list .img_list')];
 				const [$v_work_img, $v_skills, $v_title_en, $v_title_kr, $v_link, $v_con_text, $v_img] = [$('.work_img'), $('.skills'), $('.title_en'), $('.title_kr'), $('.link'), $('.con_text'), $('.img_wrap')]
-				const {title_en, title_kr, background, link, skill, text, work_date, list_img, view_img} = data[work];
-				
+				const {
+					title_en,
+					title_kr,
+					background,
+					link,
+					skill,
+					text,
+					work_date,
+					list_img,
+					view_img
+				} = data[work];
+
 				$d_bg.css('background', background);
 				$d_title.html(`<p>${title_en}</p>`);
 				$v_skills.text(skill);
 				$v_title_en.text(title_en);
 				$v_title_kr.text(title_kr);
-				$v_link.attr({'data-url':link,"data-site":title_en});
+				$v_link.attr({
+					'data-url': link,
+					"data-site": title_en
+				});
 				// $v_link.attr('href', link);
 				$v_con_text.text(text);
 				$v_con_text.append(`<div class="work_date">프로젝트 기간 : ${work_date}</div>`);
@@ -66,7 +82,7 @@ window.onload = () => {
 
 	/* 페이지 세팅 */
 	const setPage = (url) => {
-		
+
 		$.ajax({
 			// url: `https://rheejeongseok.github.io/rhee_portfolio/html/${url}.html`,
 			url: `${window.location.origin}/rhee_portfolio/html/${url}.html`,
@@ -83,7 +99,10 @@ window.onload = () => {
 					$content.html(data);
 					if (url === 'work') getWork(0);
 					if (url === 'about') $wrap.addClass('on');
-					history.pushState({url:url, data:data}, '', url);
+					history.pushState({
+						url: url,
+						data: data
+					}, '', url);
 
 					if (url === 'about') $content.show().addClass('about_ani');
 					else if (url === 'work') $content.show().addClass('work_ani');
@@ -94,7 +113,7 @@ window.onload = () => {
 				setTimeout(() => {
 					$content.removeClass('about_ani work_ani');
 					if (url === 'home') action_home();
-					
+
 				}, 2000);
 			}
 		});
@@ -106,7 +125,7 @@ window.onload = () => {
 		const $now = $('.work_num .now');
 		const type = e.target.getAttribute('class');
 		type === "prev" ? (work <= min_work ? work = max_work : work = work - 1) : (work >= max_work ? work = min_work : work = work + 1)
-		if($wrap.has('.on')) $('html,body').scrollTop(0);
+		if ($wrap.has('.on')) $('html,body').scrollTop(0);
 		$now.text(`0${work+1}`)
 		getWork(work)
 
@@ -123,17 +142,28 @@ window.onload = () => {
 
 		$img_list.fadeOut(500);
 		$work_num.hide();
-		$wl.css({'position': 'absolute', "left": left, "top": top, "height": height, 'width': width})
-			.animate({'left': 0, 'top': 0, 'height': '200px', 'width': '100%' }, 1500, () => {
+		$wl.css({
+				'position': 'absolute',
+				"left": left,
+				"top": top,
+				"height": height,
+				'width': width
+			})
+			.animate({
+				'left': 0,
+				'top': 0,
+				'height': '200px',
+				'width': '100%'
+			}, 1500, () => {
 				$work_view.fadeIn(1000);
 			});
 
 	});
 
 	/* 사이트 링크 클릭 */
-	$wrap.on('click','.site_info .link',(e) => {
-		const [url,site] = [e.target.dataset['url'],e.target.dataset['site']];
-		if(site === 'CARNOTE') alert(url);
+	$wrap.on('click', '.site_info .link', (e) => {
+		const [url, site] = [e.target.dataset['url'], e.target.dataset['site']];
+		if (site === 'CARNOTE') alert(url);
 		else window.open(`http://${url}`);
 	})
 
@@ -141,19 +171,25 @@ window.onload = () => {
 	$('.menu a[data-url]').click(e => {
 		e.preventDefault();
 		const url = e.target.dataset['url'];
+		pageArray.push(url)
+		console.log(pageArray);
 		prev_page = now_page;
 		now_page = url;
 		setPage(now_page, prev_page, now_page);
 	});
 
 	/* 스크롤 맨위 */
-	$wrap.on('click','.scr_top',() => {
-		$('html, body').stop().animate({scrollTop:0}, 1000, 'swing');
+	$wrap.on('click', '.scr_top', () => {
+		$('html, body').stop().animate({
+			scrollTop: 0
+		}, 1000, 'swing');
 	})
 
 	/* 뒤로 가기 시 페이지 세팅 */
 	$(window).on('popstate', function (e) {
-		const {url} = e.originalEvent.state;
+		const {
+			url
+		} = e.originalEvent.state;
 		setPage(url);
 	})
 
@@ -166,7 +202,7 @@ window.onload = () => {
 				$('.intro').fadeOut(1000);
 				setPage(now_page);
 			}, 2000);
-		},		
+		},
 	})
 
 }
